@@ -12,41 +12,46 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 
 import time
-# proxyList = [
-#     "51.38.131.145:8080",
-#     "130.41.55.190:8080",
-#     "182.90.224.115:3128",
-#     "58.17.24.162:9091",
-#     "66.94.113.79:3128",
-#     "103.231.78.36:80",
-#     "45.169.162.1:3128",
-#     "150.136.246.57:80",
-#     "140.227.211.47:8080",
-#     "208.52.157.113:5555",
-#     "223.62.53.140:3128",
-#     ""
-# ]
+proxyList = [
+    "51.38.131.145:8080",
+    "130.41.55.190:8080",
+    "182.90.224.115:3128",
+    "58.17.24.162:9091",
+    "66.94.113.79:3128",
+    "103.231.78.36:80",
+    "45.169.162.1:3128",
+    "150.136.246.57:80",
+    "140.227.211.47:8080",
+    "208.52.157.113:5555",
+    "223.62.53.140:3128",
+    ""
+]
 
-proxyDriver = webdriver.Chrome('/Users/winnieg/Downloads/chromedriver')
+# proxyDriver = webdriver.Chrome('/Users/winnieg/Downloads/chromedriver')
 
-proxyDriver.get("https://www.freeproxylists.net/")
+# proxyDriver.get("https://www.freeproxylists.net/")
 
-proxyDataTable = proxyDriver.find_element(By.CLASS_NAME, "DataGrid")
+# proxyDataTable = proxyDriver.find_element(By.CLASS_NAME, "DataGrid")
 
-proxyIds = proxyDataTable.find_elements(By.TAG_NAME, 'td')
+# proxyIds = proxyDataTable.find_elements(By.TAG_NAME, 'td')
 
-print(proxyIds[1].text)
-
-
+# print(proxyIds[1].text)
 
 
-# PROXY = "203.160.174.82:8091"
-# chrome_options = webdriver.ChromeOptions()
-# chrome_options.add_argument('--proxy-server=%s' % PROXY)
+for proxy in proxyList:
 
-# driver = webdriver.Chrome('/Users/winnieg/Downloads/chromedriver', chrome_options=chrome_options)
-# # driver.get("https://seamlesshr.com/refer-and-earn-a/?utm_campaign=Refer+and+Earn&utm_source=linkedin&utm_medium=paid&hsa_acc=504014782&hsa_cam=612444133&hsa_grp=201147844&hsa_ad=183818734&hsa_net=linkedin&hsa_ver=3")
-# driver.get("https://webhook.site/fccec302-143a-4e0d-9300-a7a1fd608bf1")
+
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--proxy-server=%s' % proxy)
+
+    driver = webdriver.Chrome('/Users/winnieg/Downloads/chromedriver', chrome_options=chrome_options)
+    # driver.get("https://seamlesshr.com/refer-and-earn-a/?utm_campaign=Refer+and+Earn&utm_source=linkedin&utm_medium=paid&hsa_acc=504014782&hsa_cam=612444133&hsa_grp=201147844&hsa_ad=183818734&hsa_net=linkedin&hsa_ver=3")
+    driver.get("https://webhook.site/fccec302-143a-4e0d-9300-a7a1fd608bf1")
+
+    driver.close()
+    time.sleep(3)
+
+
 
 # cookieButton = driver.find_element(By.CLASS_NAME, 'ekit-btn-wraper')
 # cookieButton.click()
